@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="demo1App" ng-controller="PhoneListCtrl">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../webjars/bootstrap/3.2.0/css/bootstrap.css">
+  <link rel="stylesheet" href="../webjars/bootstrap-material-design/0.2.1/css/material.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular JS - Demo 1 - {{filtro}}</title>
+</head>
+<body>
+  <p>
+    Simple binding: Hello world {{name + '!' }}
+  </p>
+  
+  <div class="container-fluid" style="border: 1px solid;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+          <!--Sidebar content-->
+          Search: <input ng-model="filtro">
+        </div>
+        <div class="col-md-10">
+          <ul class="phones">
+            <li ng-repeat="phone in phones | filter:filtro">
+              {{phone.name}}
+              <p>{{phone.snippet}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <div  style="border: 1px solid;">
+    <p>
+      Simple table - Static indexes and values
+    </p>
+    <table border="1">
+      <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]">
+        <td ng-repeat="j in [0, 1, 2, 3, 4, 5, 6, 7]">
+          {{(i + 1) + " , " + (j+1)}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="border: 1px solid;">
+    <p>
+      Simple table from data model - matrix
+    </p>
+    <table border="1">
+      <tr><th ng-repeat="header in tableWithData.header">{{header}}</th></tr>
+      <tr ng-repeat="row in tableWithData.dataTable">
+        <td ng-repeat="col in row track by $index">{{col}}</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div style="border: 1px solid;">
+    <p>
+      Simple table from data model with filters and sorting
+    </p>
+    <div>
+      Filter by: 
+      <div class="col-md-2">
+        Search: <input ng-model="filterForTable">
+      </div>
+      Sort by: 
+      <select ng-model="structuredTableData.orderProperty">
+        <option value="col1">col1</option>
+        <option value="col2">col2</option>
+      </select>
+    </div>
+    <table border="1">
+      <tr><th ng-repeat="header in structuredTableData.header">{{header}}</th></tr>
+      <tr ng-repeat="rowData in structuredTableData.dataTable | filter: filterForTable | orderBy: structuredTableData.orderProperty">
+        <td>{{rowData.col1}}</td>
+        <td>{{rowData.col2}}</td>
+        <td>{{rowData.col3}}</td>
+        <td>{{rowData.col4}}</td>
+        <td>{{rowData.col5}}</td>
+        <td>{{rowData.col6}}</td>
+        <td>{{rowData.col7}}</td>
+        <td>{{rowData.col8}}</td>
+      </tr>
+    </table>
+  </div>
+  <br/>
+  <p>
+    Fetching data from a RESTfull server: {{greeting}} 
+  </p>
+  <br/>
+  <div style="border: 1px solid;">
+    <p>
+      Fetching an object data from a RESTfull server:
+    </p>
+    <div class="container-fluid" style="border: 1px solid;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2">
+            Search: <input ng-model="filtroUsers">
+          </div>
+          <div class="col-md-10">
+            <ul class="users">
+              <li ng-repeat="user in users | filter:filtroUsers">
+                {{user.firstName}}
+                <p>{{user.familyName}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <script type="text/javascript" src="../webjars/jquery/2.1.1/jquery.js"></script>
+  <script type="text/javascript" src="../webjars/angularjs/1.4.3/angular.js"></script>
+  <script type="text/javascript" src="../webjars/angularjs/1.4.3/angular-resource.js"></script>
+  <!--
+  <script type="text/javascript" src="../webjars/angularjs/1.4.3/angular.min.js"></script>
+  <script type="text/javascript" src="../webjars/angularjs/1.4.3/angular-resource.min.js"></script>
+  -->
+  <script type="text/javascript" src="../webjars/bootstrap-material-design/0.2.1/js/material.js"></script>
+  
+  <script type="text/javascript" src="../resources/js/demo/Demo1Controller.js"></script>  
+</body>
+</html>
