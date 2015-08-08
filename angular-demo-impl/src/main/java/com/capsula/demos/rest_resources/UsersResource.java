@@ -10,10 +10,7 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Request;
-import javax.ws.rs.core.UriInfo;
 
 import com.capsula.demos.web_model.User;
 
@@ -23,11 +20,7 @@ import com.capsula.demos.web_model.User;
  */
 @Path("/users")
 public class UsersResource {
-  @Context
-  UriInfo uriInfo;
-  @Context
-  Request request;
-
+  
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public List<User> getUsers () {
