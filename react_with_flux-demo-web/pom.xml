@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.capsula.demos</groupId>
+  <artifactId>react_with_flux-demo-web</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>react_with_flux-demo-web Maven Webapp</name>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java-version>1.7</java-version>
+    <jquery-version>2.1.1</jquery-version>
+    <reactjs-version>0.13.3</reactjs-version>
+    <fluxjs-version>2.0.2</fluxjs-version>
+    <fluxxorjs-version>1.6.0</fluxxorjs-version>
+  </properties>
+  
+  <dependencies>    
+    <!-- web jars -->
+
+    
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>react</artifactId>
+      <version>${reactjs-version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>react</artifactId>
+      <version>${reactjs-version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>flux</artifactId>
+      <version>${fluxjs-version}</version>
+    </dependency>
+    
+		<dependency>
+	    <groupId>org.webjars</groupId>
+	    <artifactId>fluxxor</artifactId>
+	    <version>${fluxxorjs-version}</version>
+		</dependency>
+    
+  </dependencies>
+
+  <build>
+    <plugins>
+    <!--
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.2-SNAPSHOT</version>
+      </plugin>
+    -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.5.1</version>
+        <configuration>
+          <source>${java-version}</source>
+          <target>${java-version}</target>
+          <compilerArgument>-Xlint:all</compilerArgument>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <server>Tomcat7</server>
+          <path>/react_with_flux-demo-web</path>
+        </configuration>
+      </plugin>
+      
+      <!-- Minify the web resources 
+      <plugin>
+        <groupId>com.samaxes.maven</groupId>
+        <artifactId>minify-maven-plugin</artifactId>
+        <version>1.7.4</version>
+        <executions>
+          <execution>
+            <id>default-minify</id>
+            <configuration>
+              <cssSourceInclude>**</cssSourceInclude>
+            </configuration>
+            <goals>
+              <goal>minify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      -->
+    </plugins>
+  </build>
+
+</project>
