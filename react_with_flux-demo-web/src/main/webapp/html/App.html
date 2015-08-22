@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="mount-point1" style="border: 1px solid; margin: 5px;"></div>
+    <br />
+    <div id="mount-point2" style="border: 1px solid; margin: 5px;"></div>
+    
+    <script type="text/javascript" src="../webjars/react/0.13.3/react.js"></script>
+    <script type="text/javascript" src="../webjars/react/0.13.3/JSXTransformer.js"></script>
+    <script type="text/javascript" src="../webjars/flux/2.0.2/dist/Flux.js"></script>
+    <script type="text/javascript" src="../webjars/fluxxor/1.6.0/fluxxor.js"></script>
+    
+    <!-- Todo component -->
+    <script type="text/javascript" src="../todo/actions/TodoConstants.js"></script>
+    <script type="text/javascript" src="../todo/actions/TodoActions.js"></script>
+    <script type="text/javascript" src="../todo/stores/TodoStore.js"></script>
+    <!-- Locations component -->
+    <script type="text/javascript" src="../locations/utils/LocationsFetcher.js"></script>
+    <script type="text/javascript" src="../locations/actions/LocationConstants.js"></script>
+    <script type="text/javascript" src="../locations/actions/LocationActions.js"></script>
+    <script type="text/javascript" src="../locations/stores/LocationStore.js"></script>
+    
+    <script type="text/jsx" src="../dispatcher/AppDispatcher.js"></script>
+    
+    <script type="text/jsx" src="../todo/components/TodoApp.jsx"></script>
+    <script type="text/jsx" src="../todo/components/TodoItem.jsx"></script>
+    
+    <script type="text/jsx" src="../locations/components/Location.jsx"></script>
+    
+  </body>
+</html>

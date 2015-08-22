@@ -1,9 +1,3 @@
-var TodoConstants = {
-  ADD_TODO: "ADD_TODO",
-  TOGGLE_TODO: "TOGGLE_TODO",
-  CLEAR_TODOS: "CLEAR_TODOS"
-};
-
 var TodoStore = Fluxxor.createStore({
   initialize: function() {
     this.todoId = 0;

@@ -7,7 +7,11 @@ var Application = React.createClass({
   getInitialState: function() {
     return { newTodoText: "" };
   },
-
+  
+  /**
+   * Returns an object representing the part of the component's state that 
+   * comes from the Flux stores.
+   */
   getStateFromFlux: function() {
     var flux = this.getFlux();
     // Our entire state is made up of the TodoStore data. In a larger
@@ -26,9 +30,11 @@ var Application = React.createClass({
     return (
       <div>
         <ul>
-          {Object.keys(todos).map(function(id) {
-            return <li key={id}><TodoItem todo={todos[id]} /></li>;
-          })}
+          {
+            Object.keys(todos).map(function(id) {
+              return <li key={id}><TodoItem todo={todos[id]} /></li>;
+            })
+          }
         </ul>
         <form onSubmit={this.onSubmitForm}>
           <input type="text" size="30" placeholder="New Todo"

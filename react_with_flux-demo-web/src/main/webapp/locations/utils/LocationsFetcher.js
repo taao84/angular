@@ -1,15 +1,16 @@
 var LocationsFetcher = {
-  fetch: function () {
-    // returning a Promise because that is what fetch does.
-    return new Promise(function (resolve, reject) {
-      // simulate an asynchronous action where data is fetched on
-      // a remote server somewhere.
-      setTimeout(function () {
-
-        // resolve with some mock data
-        resolve(mockData);
-      }, 250);
-    });
+  fetch : function(success, failure) {
+    // simulate an asynchronous action where data is fetched on
+    // a remote server somewhere.
+    var passFail = Math.random() * 10;
+    setTimeout(function () {
+      // resolve with some mock data
+      if (passFail < 5) {
+        success(mockData);
+      } else {
+        failure("We failed loading the locations");
+      }
+    }, 1000);
   }
 };
 
